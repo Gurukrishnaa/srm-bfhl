@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BFHL Tree Analyzer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>BFHL Tree Analyzer</h1>
+      <p>Analyze graph structures and detect hierarchy patterns</p>
+    </div>
+
+    <div class="content">
+      <!-- Input Section -->
+      <div class="card">
+        <h2>Input Data</h2>
+        
+        <label for="inputArea">Graph Edges</label>
+        <textarea id="inputArea" placeholder="Enter edges like: A->B, B->C, C->D"></textarea>
+        
+        <div class="input-hint">
+          ✓ Format: Edge pairs separated by commas or newlines<br>
+          ✓ Example: A->B, B->D, A->C, C->E<br>
+          ✓ Or paste a JSON object with a "data" array
+        </div>
+
+        <div class="examples">
+          <p>Quick Examples:</p>
+          <div class="example-item">A->B, A->C, B->D</div>
+          <div class="example-item">X->Y<br>Y->Z</div>
+        </div>
+
+        <div class="button-group">
+          <button id="submitBtn" onclick="handleSubmit()">Analyze</button>
+          <button onclick="clearInput()">Clear</button>
+        </div>
+
+        <p class="error" id="errorMsg" style="display:none"></p>
+        <p class="success" id="successMsg" style="display:none"></p>
+      </div>
+
+      <!-- Output Section -->
+      <div id="output" class="card" style="display:none">
+        <div class="output-header">
+          <h2>Analysis Result</h2>
+          <button class="copy-btn" onclick="copyOutput()">Copy</button>
+        </div>
+        
+        <pre id="responseJson"></pre>
+
+        <div class="stats" id="statsPanel"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
